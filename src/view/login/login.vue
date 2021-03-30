@@ -1,6 +1,6 @@
 <template>
 	
 </template>
-<script lang="less">
+<script >
 	
 </script>

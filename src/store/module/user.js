@@ -18,9 +18,5 @@ export default {
 			state.img = img
 		}
 	},
-	actions: {},
-	modules: {
-		user,
-		app
-	}
+	actions: {}
 }

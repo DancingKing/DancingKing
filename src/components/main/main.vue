@@ -1,40 +1,44 @@
 <template>
 	<el-container>
 		<el-aside width="200px">
-			<el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#545c64"
-			 text-color="#fff" active-text-color="#ffd04b">
-				<el-submenu index="1">
-					<el-menu-item index="1-1">选项1</el-menu-item>
-					<el-menu-item index="1-2">选项2</el-menu-item>
-					<el-menu-item index="1-3">选项3</el-menu-item>
-					<el-submenu index="1-4">
-						<template slot="title">选项4</template>
-						<el-menu-item index="1-4-1">选项1</el-menu-item>
-					</el-submenu>
-				</el-submenu>
-				<el-menu-item index="2">
-					<i class="el-icon-menu"></i>
-					<span slot="title">导航二</span>
-				</el-menu-item>
-				<el-menu-item index="3">
-					<i class="el-icon-setting"></i>
-					<span slot="title">导航四</span>
-				</el-menu-item>
-			</el-menu>
+			<sub-menu ref="subMenu" :default-active="$route.meta.index" :menuList = "menuList" >
+				
+			</sub-menu>			
 		</el-aside>
 		<el-container>
 			<el-header>
-
+				头部
 			</el-header>
 			<el-main>
-
+				主体
 			</el-main>
 		</el-container>
 	</el-container>
 </template>
 
 <script>
+	import subMenu from './submenu.vue'
+	import {mapMutations,mapActions,mapGetters} from 'vuex'
+	export default{
+		name:'Main',
+		components:{
+			subMenu
+		},
+		computed:{
+			menuList(){
+				console.log(12121212)
+				console.log(this.$store.getters.menuList)
+				return this.$store.getters.menuList
+			},
+		},
+		data(){
+			return{
+				activeIndex:"1-1"
+			}
+		}
+	}
 </script>
 
 <style>
+	
 </style>
